@@ -565,7 +565,8 @@ body.lock {
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-  transition: var(--transition)
+  transition: var(--transition);
+  will-change: transform
 }
 .intro__button:hover {
   opacity: .7
@@ -616,7 +617,7 @@ body.lock {
 }
 .intro__panel {
   position: absolute;
-  right: -1px;
+  right: 0;
   z-index: 10000;
   width: 372px;
   height: 60px;
@@ -624,14 +625,18 @@ body.lock {
   background-color: var(--black-color)
 }
 .intro__panel--top {
-  top: -1px;
-  border-radius: 0 0 0 30px
+  top: 0;
+  border-radius: 0 0 0 30px;
+  border-top: none;
+  border-right: none;
+  box-shadow: 15px -15px 0 15px var(--black-color)
 }
 .intro__panel--top::before {
   content: "";
   position: absolute;
   top: 0;
   left: -30px;
+  z-index: 10;
   width: 30px;
   height: 30px;
   border: 1px solid var(--white-color);
@@ -645,6 +650,7 @@ body.lock {
   position: absolute;
   bottom: -30px;
   right: 0;
+  z-index: 10;
   width: 30px;
   height: 30px;
   border: 1px solid var(--white-color);
@@ -654,9 +660,12 @@ body.lock {
   box-shadow: 10px -10px 0 8px #000
 }
 .intro__panel--bottom {
-  bottom: -1px;
+  bottom: 0;
   height: 61px;
-  border-radius: 30px 0 0 0
+  border-radius: 30px 0 0 0;
+  border-bottom: none;
+  border-right: none;
+  box-shadow: 15px 15px 0 15px var(--black-color)
 }
 .intro__panel--bottom::before {
   content: "";
@@ -665,6 +674,7 @@ body.lock {
   left: -30px;
   width: 30px;
   height: 30px;
+  z-index: 10;
   border: 1px solid var(--white-color);
   border-radius: 0 0 30px 0;
   border-top: none;
@@ -676,6 +686,7 @@ body.lock {
   position: absolute;
   top: -30px;
   right: 0;
+  z-index: 10;
   width: 30px;
   height: 30px;
   border: 1px solid var(--white-color);
