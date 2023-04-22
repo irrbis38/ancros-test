@@ -173,18 +173,19 @@ template {
 :root {
   --white-color: #fff;
   --black-color: #000;
-  --font: "Favorit Extended",sans-serif;
+  --favorit: "Favorit Extended",sans-serif;
+  --inter: "Inter",sans-serif;
   --transition: all 0.2s ease-out
 }
 html {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0
+  box-sizing: border-box
 }
 *,
 ::after,
 ::before {
-  box-sizing: inherit
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0
 }
 li,
 ol,
@@ -205,7 +206,7 @@ body {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  font-family: var(--font);
+  font-family: var(--favorit);
   color: var(--white-color);
   background-color: var(--black-color);
   -webkit-font-smoothing: antialiased;
@@ -222,7 +223,7 @@ body.lock {
   padding: 0 24px
 }
 .header {
-  height: 60px;
+  height: 59px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -231,8 +232,7 @@ body.lock {
   justify-content: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
-  align-items: center;
-  border-bottom: 1px solid var(--white-color)
+  align-items: center
 }
 .header__navbar {
   width: 100%;
@@ -277,6 +277,49 @@ body.lock {
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1
+}
+.intro {
+  position: relative;
+  border-top: 1px solid var(--white-color)
+}
+.intro__top {
+  position: absolute;
+  top: -43px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  padding: 12px 22px 13px;
+  border-radius: 15px 15px 0 0;
+  border: 1px solid var(--white-color);
+  border-bottom: none;
+  font-family: var(--inter);
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--white-color);
+  background-color: var(--black-color)
+}
+.intro__top--left {
+  width: 15px;
+  height: 30px;
+  position: absolute;
+  bottom: -8px;
+  left: -15px;
+  background-color: var(--black-color)
+}
+.intro__top--left::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-right: 1px solid var(--white-color);
+  border-bottom: 1px solid var(--white-color);
+  border-radius: 0 0 15px 0
 }
 footer {
   padding: 20px
