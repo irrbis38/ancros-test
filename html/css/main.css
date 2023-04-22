@@ -720,13 +720,6 @@ body.lock {
   -ms-flex-align: center;
   align-items: center
 }
-.intro__open:hover .svg-image-open {
-  rotate: 180deg
-}
-.intro__open:hover .intro__button--open {
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2)
-}
 .intro__button--open {
   position: absolute;
   top: 0;
@@ -738,11 +731,7 @@ body.lock {
   border: 1px solid var(--white-color);
   border-radius: 50%;
   cursor: pointer;
-  transition: var(--transition);
   will-change: transform
-}
-.svg-image-open {
-  transition: var(--transition)
 }
 .intro__panel {
   position: absolute;

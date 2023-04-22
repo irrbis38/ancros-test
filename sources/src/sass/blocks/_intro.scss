@@ -262,15 +262,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  &:hover {
-    .svg-image-open {
-      rotate: 180deg;
-    }
-
-    .intro__button--open {
-      transform: scale(1.2);
-    }
-  }
 }
 
 .intro__button--open {
@@ -284,16 +275,7 @@
   border: 1px solid var(--white-color);
   border-radius: 50%;
   cursor: pointer;
-  transition: var(--transition);
   will-change: transform;
-
-  // &:hover {
-  //   transform: scale(1.2);
-  // }
-}
-
-.svg-image-open {
-  transition: var(--transition);
 }
 
 // panels styles

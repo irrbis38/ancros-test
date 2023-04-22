@@ -33,7 +33,37 @@ document.addEventListener("DOMContentLoaded", function (event) {
       removeHeaderNavTransition();
     }
   });
+
+  const svg_image_open = document.querySelector(".svg-image-open");
+  const intro_button_open = document.querySelector(".intro__button--open");
+
+  const introButtonTween = gsap.to(svg_image_open, {
+    rotation: 360,
+    ease: "none",
+    duration: 20,
+    repeat: -1,
+  });
+
+  intro_button_open.addEventListener("mouseenter", function () {
+    gsap.to(introButtonTween, {
+      timeScale: 15,
+      duration: 0.3,
+      ease: Power4.easeOut,
+    });
+    gsap.to(intro_button_open, 0.3, { scale: 1.2 });
+  });
+
+  intro_button_open.addEventListener("mouseleave", function () {
+    gsap.to(introButtonTween, {
+      timeScale: 1,
+      duration: 0.3,
+      ease: Power4.easeOut,
+    });
+    gsap.to(intro_button_open, 0.3, { scale: 1 });
+  });
 });
+
+// functions definitions
 
 function removeHeaderNavTransition() {
   return gsap
