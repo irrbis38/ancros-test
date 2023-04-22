@@ -429,7 +429,6 @@ body.lock {
   left: 0;
   z-index: 2;
   background-color: var(--black-color);
-  border: 1px solid var(--white-color);
   border-radius: 30px 30px 0 0;
   overflow: hidden
 }
@@ -443,7 +442,10 @@ body.lock {
 }
 .intro__content {
   z-index: 10;
-  padding: 68px 56px
+  padding: 68px 56px;
+  border: 1px solid var(--white-color);
+  border-radius: 30px 30px 0 0;
+  overflow: hidden
 }
 .intro__visual {
   z-index: 5
@@ -550,6 +552,79 @@ body.lock {
 }
 .intro__button:hover {
   opacity: .7
+}
+.intro__button:active {
+  -webkit-transform: scale(.98);
+  transform: scale(.98)
+}
+.intro__panel {
+  position: absolute;
+  right: -1px;
+  z-index: 10000;
+  width: 372px;
+  height: 60px;
+  border: 1px solid var(--white-color);
+  background-color: var(--black-color)
+}
+.intro__panel--top {
+  top: -1px;
+  border-radius: 0 0 0 30px
+}
+.intro__panel--top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -30px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--white-color);
+  border-radius: 0 30px 0 0;
+  border-bottom: none;
+  border-left: none;
+  box-shadow: 10px -10px 0 8px #000
+}
+.intro__panel--top::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--white-color);
+  border-radius: 0 30px 0 0;
+  border-bottom: none;
+  border-left: none;
+  box-shadow: 10px -10px 0 8px #000
+}
+.intro__panel--bottom {
+  bottom: -1px;
+  border-radius: 30px 0 0 0
+}
+.intro__panel--bottom::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -30px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--white-color);
+  border-radius: 0 0 30px 0;
+  border-top: none;
+  border-left: none;
+  box-shadow: 10px 10px 0 8px #000
+}
+.intro__panel--bottom::after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--white-color);
+  border-radius: 0 0 30px 0;
+  border-top: none;
+  border-left: none;
+  box-shadow: 10px 10px 0 8px #000
 }
 .intro__nav {
   position: absolute;
