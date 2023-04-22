@@ -6,13 +6,13 @@
 
 .svg-image-left {
 	@extend %svg-common;
-	background-position: 0 100%;
+	background-position: 0 89.33333333333333%;
 	background-size: math.div(1148, 1135)*100% auto;
 	width: 1135px;
 
 }
 @mixin svg-pos-image-left {
-	background-position: 0 100%;
+	background-position: 0 89.33333333333333%;
 }
 @mixin svg-image-left-hover {
 	.svg-image-left {
@@ -31,6 +31,35 @@
 .svg-image-left-dims {
 	width: 1135px;
 	height: 396px;
+}
+
+.svg-image-open {
+	@extend %svg-common;
+	background-position: 0 100%;
+	background-size: math.div(1148, 48)*100% auto;
+	width: 48px;
+
+}
+@mixin svg-pos-image-open {
+	background-position: 0 100%;
+}
+@mixin svg-image-open-hover {
+	.svg-image-open {
+		@include svg-pos-image-open-hover
+	}
+}
+
+.svg-image-open:before {
+	content:"";
+	display:block;
+	font-size:0;
+	line-height:0;
+	padding-top: math.div(48, 48)*100%;
+}
+
+.svg-image-open-dims {
+	width: 48px;
+	height: 48px;
 }
 
 .svg-image-right {
