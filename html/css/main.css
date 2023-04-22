@@ -528,7 +528,6 @@ body.lock {
   z-index: 100;
   width: 162px;
   height: 42px;
-  border: 1px solid var(--white-color);
   border-radius: 30px;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -536,10 +535,9 @@ body.lock {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: var(--black-color)
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch
 }
 .intro__center,
 .intro__next,
@@ -550,7 +548,13 @@ body.lock {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  cursor: pointer
+  background-color: var(--black-color);
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  transition: all .1s ease-out
 }
 .intro__center path,
 .intro__next path,
@@ -568,30 +572,42 @@ body.lock {
   left: 50%;
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
+  z-index: 5;
   width: 64px;
   height: 64px;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
   border-radius: 50%;
-  border: 1px solid var(--white-color);
-  background-color: var(--black-color)
+  border: 1px solid var(--white-color)
+}
+.intro__center:active {
+  -webkit-transform: translate(-50%,-50%) scale(.9);
+  transform: translate(-50%,-50%) scale(.9)
 }
 .intro__next,
 .intro__prev {
-  width: 50%
+  width: 50%;
+  border: 1px solid var(--white-color)
+}
+.intro__next:active,
+.intro__prev:active {
+  -webkit-transform: scale(.9);
+  transform: scale(.9)
 }
 .intro__prev {
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  padding-left: 21px
+  padding-left: 21px;
+  border-radius: 30px 0 0 30px
 }
 .intro__next {
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  padding-right: 21px
+  padding-right: 21px;
+  border-radius: 0 30px 30px 0
 }
 footer {
   padding: 20px

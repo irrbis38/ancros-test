@@ -197,12 +197,10 @@
   z-index: 100;
   width: 162px;
   height: 42px;
-  border: 1px solid var(--white-color);
   border-radius: 30px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: var(--black-color);
+  align-items: stretch;
 }
 
 .intro__prev,
@@ -210,7 +208,11 @@
 .intro__next {
   display: flex;
   align-items: center;
+  background-color: var(--black-color);
+  outline: none;
+  appearance: none;
   cursor: pointer;
+  transition: all 0.1s ease-out;
 
   path {
     transition: var(--transition);
@@ -226,25 +228,36 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 5;
   width: 64px;
   height: 64px;
   justify-content: center;
   border-radius: 50%;
   border: 1px solid var(--white-color);
-  background-color: var(--black-color);
+
+  &:active {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
 }
 
 .intro__prev,
 .intro__next {
   width: 50%;
+  border: 1px solid var(--white-color);
+
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
 .intro__prev {
   justify-content: flex-start;
   padding-left: 21px;
+  border-radius: 30px 0 0 30px;
 }
 
 .intro__next {
   justify-content: flex-end;
   padding-right: 21px;
+  border-radius: 0 30px 30px 0;
 }
