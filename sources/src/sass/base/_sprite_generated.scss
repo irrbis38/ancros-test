@@ -1,213 +1,69 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@use 'sass:math';
+
+%svg-common {
+	background: url("../images/sprites/main.svg") no-repeat;
+}
+
+.svg-image-left {
+	@extend %svg-common;
+	background-position: 0 100%;
+	background-size: math.div(1148, 1135)*100% auto;
+	width: 1135px;
+
+}
+@mixin svg-pos-image-left {
+	background-position: 0 100%;
+}
+@mixin svg-image-left-hover {
+	.svg-image-left {
+		@include svg-pos-image-left-hover
+	}
+}
+
+.svg-image-left:before {
+	content:"";
+	display:block;
+	font-size:0;
+	line-height:0;
+	padding-top: math.div(396, 1135)*100%;
+}
+
+.svg-image-left-dims {
+	width: 1135px;
+	height: 396px;
+}
+
+.svg-image-right {
+	@extend %svg-common;
+	background-position: 0 0;
+	background-size: math.div(1148, 1148)*100% auto;
+	width: 1148px;
+
+}
+@mixin svg-pos-image-right {
+	background-position: 0 0;
+}
+@mixin svg-image-right-hover {
+	.svg-image-right {
+		@include svg-pos-image-right-hover
+	}
+}
+
+.svg-image-right:before {
+	content:"";
+	display:block;
+	font-size:0;
+	line-height:0;
+	padding-top: math.div(402, 1148)*100%;
+}
+
+.svg-image-right-dims {
+	width: 1148px;
+	height: 402px;
+}
+
+
+.image-by-height { width:auto; }
+.image-by-height:before { content:none; }
+.image-by-height > svg { height: inherit; }
+.image-by-height > img { height: inherit !important; vertical-align: top !important; margin: 0 !important; padding: 0 !important; max-width: none !important; max-height: none !important; border: 0 !important; opacity: 0 !important; }
