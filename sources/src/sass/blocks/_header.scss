@@ -3,12 +3,56 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .container {
+    @include r(1120px) {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
 }
 
 .header__navbar {
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  @include r(1120px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -100;
+    background-color: var(--black-color);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: var(--transition);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 30px;
+    overflow-y: auto;
+  }
+
+  &.active {
+    z-index: 100000;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+}
+
+.header__logo {
+  display: none;
+
+  @include r(1120px) {
+    display: block;
+    margin-bottom: 40px;
+    font-size: 28px;
+  }
 }
 
 .header__panel {
@@ -22,11 +66,25 @@
       margin-right: 4px;
     }
   }
+
+  @include r(1120px) {
+    display: block;
+
+    ul,
+    li {
+      width: max-content;
+      margin: 0 auto 20px !important;
+    }
+  }
 }
 
 .header__panel--left {
   justify-content: flex-start;
   padding-left: 6.9%;
+
+  @include r(1120px) {
+    padding-left: 0;
+  }
 }
 
 .header__panel--right {
@@ -45,5 +103,72 @@
 
   &:hover {
     opacity: 0.7;
+  }
+}
+
+.header__burger {
+  position: relative;
+  display: none;
+  width: 32px;
+  height: 24px;
+  cursor: pointer;
+
+  &.active {
+    z-index: 1000000000000000;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    min-width: 32px;
+    height: 2px;
+    border-radius: 32px;
+    background-color: var(--white-color);
+    transition: var(--transition);
+  }
+
+  &::before {
+    top: 0;
+    transform-origin: top left;
+  }
+
+  &::after {
+    bottom: 0;
+    transform-origin: bottom left;
+  }
+
+  span {
+    position: absolute;
+    top: 11px;
+    left: 0;
+    width: 32px;
+    height: 2px;
+    border-radius: 32px;
+    background-color: var(--white-color);
+    transition: var(--transition);
+  }
+
+  &.active {
+    span {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &::before {
+      min-width: 32px;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      min-width: 32px;
+
+      transform: rotate(-45deg);
+    }
+  }
+
+  @include r(1120px) {
+    display: block;
   }
 }
