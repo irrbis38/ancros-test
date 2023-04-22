@@ -8,10 +8,8 @@
   top: -43px;
   left: 50%;
   transform: translateX(-50%);
+  min-width: 50px;
   padding: 12px 22px 13px;
-  border-radius: 15px 15px 0 0;
-  border: 1px solid var(--white-color);
-  border-bottom: none;
   font-family: var(--inter);
   font-weight: 500;
   font-size: 34px;
@@ -21,25 +19,56 @@
   text-transform: uppercase;
   color: var(--white-color);
   background-color: var(--black-color);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    border-radius: 15px 15px 0 0;
+    border: 1px solid var(--white-color);
+    border-bottom: none;
+  }
 }
 
-.intro__top--left {
-  width: 15px;
-  height: 30px;
+.intro__top--left,
+.intro__top--right {
   position: absolute;
-  bottom: -8px;
-  left: -15px;
+  top: 28px;
+  width: 14px;
+  height: 15px;
   background-color: var(--black-color);
 
   &::before {
     content: "";
-    width: 15px;
-    height: 15px;
     position: absolute;
     top: 0;
-    left: 0;
+    width: 16px;
+    height: 100%;
+    background-color: var(--black-color);
+  }
+}
+
+.intro__top--left {
+  left: -13px;
+
+  &::before {
+    left: -2px;
     border-right: 1px solid var(--white-color);
     border-bottom: 1px solid var(--white-color);
     border-radius: 0 0 15px 0;
+  }
+}
+
+.intro__top--right {
+  right: -13px;
+
+  &::before {
+    right: -2px;
+    border-left: 1px solid var(--white-color);
+    border-bottom: 1px solid var(--white-color);
+    border-radius: 0 0 0 15px;
   }
 }
