@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   });
 
+  // rotate intro__open--button
   const svg_image_open = document.querySelector(".svg-image-open");
   const intro_button_open = document.querySelector(".intro__button--open");
 
@@ -61,13 +62,63 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
     gsap.to(intro_button_open, 0.3, { scale: 1 });
   });
+
+  // tilt visual elements
+  document
+    .querySelector(".intro__main")
+    .addEventListener("mouseenter", moveElements);
 });
 
 // functions definitions
 
+// remove elements to fix first transition of hide / show mobile menu
 function removeHeaderNavTransition() {
   return gsap
     .timeline()
     .set(".header__navbar", { display: "none" })
     .set(".header__navbar", { clearProps: "all" }, "+=0.2");
+}
+
+// move visual elements
+function moveElements(e) {
+  const { target, offsetX, offsetY } = e;
+  const { clientWidth, clientHeight } = target;
+
+  // get 0 0 in the center
+
+  const xPos = offsetX / clientWidth - 0.5;
+  const yPos = offsetY / clientHeight - 0.5;
+
+  const introBg = gsap.utils.toArray([".intro__bg--left", ".intro__bg--right"]);
+  const orangeBall = gsap.utils.toArray(".intro__orange");
+  const purpleBall = gsap.utils.toArray(".intro__purple");
+
+  const modifier = (index) => index * 1.2 + 0.5;
+
+  introBg.forEach((elements, index) => {
+    gsap.to(elements, {
+      duration: 1.5,
+      width: Math.abs(87.1 + xPos * 20 * modifier(index)) + "%",
+      paddingTop: Math.abs(30.5 + xPos * 5 * modifier(index)) + "%",
+      ease: "Power4.out",
+    });
+  });
+
+  orangeBall.forEach((elements, index) => {
+    gsap.to(elements, {
+      duration: 1.8,
+      x: Math.abs(8 + xPos * 20 * modifier(index)) + "px",
+      y: Math.abs(4 + xPos * 5 * modifier(index)) + "px",
+      ease: "Power3.out",
+    });
+  });
+
+  purpleBall.forEach((elements, index) => {
+    gsap.to(elements, {
+      duration: 2.5,
+      x: Math.abs(2 - xPos * 20 * modifier(index)) + "px",
+      y: Math.abs(2 - xPos * 10 * modifier(index)) + "px",
+      ease: "Power3.out",
+    });
+  });
 }
