@@ -97,7 +97,7 @@ function moveElements(e) {
 
   introBg.forEach((elements, index) => {
     gsap.to(elements, {
-      duration: 1.5,
+      duration: 3,
       width: Math.abs(87.1 + xPos * 20 * modifier(index)) + "%",
       paddingTop: Math.abs(30.5 + xPos * 5 * modifier(index)) + "%",
       ease: "Power4.out",
@@ -115,7 +115,7 @@ function moveElements(e) {
 
   purpleBall.forEach((elements, index) => {
     gsap.to(elements, {
-      duration: 2.5,
+      duration: 3.5,
       x: Math.abs(2 - xPos * 20 * modifier(index)) + "px",
       y: Math.abs(2 - xPos * 10 * modifier(index)) + "px",
       ease: "Power3.out",
