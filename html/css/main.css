@@ -588,7 +588,8 @@ body.lock {
 .intro__wrapper {
   position: relative;
   width: 100%;
-  min-height: 518px
+  min-height: 518px;
+  overflow: hidden
 }
 @media (max-width:768px) {
   .intro__wrapper {
@@ -597,7 +598,8 @@ body.lock {
 }
 @media (max-width:576px) {
   .intro__wrapper {
-    min-height: 488px
+    min-height: 488px;
+    overflow: visible
   }
 }
 .intro__main {
@@ -628,7 +630,7 @@ body.lock {
   z-index: 10;
   padding: 68px 56px;
   border: 1px solid var(--white-color);
-  border-radius: 30px 30px 0 0;
+  border-radius: 30px 30px 0 30px;
   overflow: hidden
 }
 @media (max-width:576px) {
@@ -896,7 +898,8 @@ body.lock {
   width: 372px;
   height: 60px;
   border: 1px solid var(--white-color);
-  background-color: var(--black-color)
+  background-color: var(--black-color);
+  will-change: transform
 }
 @media (max-width:576px) {
   .intro__panel {
@@ -908,7 +911,7 @@ body.lock {
   }
 }
 .intro__panel--top {
-  top: 0;
+  top: -60px;
   border-radius: 0 0 0 30px;
   border-top: none;
   border-right: none;
@@ -954,8 +957,8 @@ body.lock {
   }
 }
 .intro__panel--bottom {
-  bottom: 0;
-  height: 61px;
+  bottom: -60px;
+  height: 60px;
   border-radius: 30px 0 0 0;
   border-bottom: none;
   border-right: none;

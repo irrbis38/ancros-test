@@ -104,6 +104,77 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
     gsap.to(intro_button_open, 0.3, { scale: 1 });
   }
+
+  // show / hide panels
+  const intro__open = document.querySelector(".intro__open");
+  const panelTop = document.querySelector(".intro__panel--top");
+  const panelBottom = document.querySelector(".intro__panel--bottom");
+  const introContent = document.querySelector(".intro__content");
+
+  if (window.innerWidth > 576) {
+    initPanelsToggle();
+  }
+
+  function initPanelsToggle() {
+    intro__open.addEventListener("click", introOpenHandler);
+  }
+
+  function introOpenHandler() {
+    const isPanelsVisible = panelTop.classList.contains("active");
+    if (!isPanelsVisible) {
+      gsap
+        .timeline({
+          defaults: {
+            duration: 0.5,
+            ease: "Power3.easeOut",
+          },
+        })
+        .to(panelTop, {
+          y: 60,
+        })
+        .to(
+          panelBottom,
+          {
+            y: -60,
+          },
+          0
+        )
+        .to(
+          introContent,
+          {
+            borderBottomLeftRadius: 0,
+          },
+          0
+        );
+      panelTop.classList.add("active");
+    } else {
+      gsap
+        .timeline({
+          defaults: {
+            duration: 0.5,
+            ease: "Power3.easeOut",
+          },
+        })
+        .to(panelTop, {
+          y: 0,
+        })
+        .to(
+          panelBottom,
+          {
+            y: 0,
+          },
+          0
+        )
+        .to(
+          introContent,
+          {
+            borderBottomLeftRadius: 30,
+          },
+          0
+        );
+      panelTop.classList.remove("active");
+    }
+  }
 });
 
 // functions definitions
