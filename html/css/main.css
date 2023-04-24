@@ -871,6 +871,24 @@ body.lock {
   cursor: pointer;
   will-change: transform
 }
+@media (max-width:768px) {
+  .intro__button--open {
+    transition: var(--transition)
+  }
+  .intro__button--open:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2)
+  }
+}
+@media (max-width:576px) {
+  .intro__button--open {
+    cursor: default
+  }
+  .intro__button--open:hover {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+}
 .intro__panel {
   position: absolute;
   right: 0;

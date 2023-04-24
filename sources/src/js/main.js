@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   // hide burger menu by window resize
 
-  const mq = window.matchMedia("(max-width: 1120px)");
+  const mq1120 = window.matchMedia("(max-width: 1120px)");
 
-  mq.addEventListener("change", (e) => {
+  mq1120.addEventListener("change", (e) => {
     if (!e.matches) {
       removeHeaderNavTransition();
       burger.classList.remove("active");
@@ -34,39 +34,76 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   });
 
-  // rotate intro__open--button
-  const svg_image_open = document.querySelector(".svg-image-open");
   const intro_button_open = document.querySelector(".intro__button--open");
+  const svg_image_open = document.querySelector(".svg-image-open");
+  const blockForMouseMove = document.querySelector(".intro__main");
+  let introButtonTween = null;
 
-  const introButtonTween = gsap.to(svg_image_open, {
-    rotation: 360,
-    ease: "none",
-    duration: 20,
-    repeat: -1,
+  if (window.innerWidth > 768) {
+    introButtonTween = gsap.to(svg_image_open, {
+      rotation: 360,
+      ease: "none",
+      duration: 20,
+      repeat: -1,
+    });
+    initRotation();
+    initMovement(blockForMouseMove);
+  }
+
+  const mq768 = window.matchMedia("(max-width: 768px)");
+
+  mq768.addEventListener("change", (e) => {
+    if (e.matches) {
+      console.log("remove");
+      // reset all button listeners
+      gsap.killTweensOf("*");
+      gsap.set(svg_image_open, { clearProps: "all" });
+      gsap.set(intro_button_open, { clearProps: "all" });
+      intro_button_open.removeEventListener(
+        "mouseenter",
+        accelerateRotateButton
+      );
+      intro_button_open.removeEventListener(
+        "mouseleave",
+        returnToRegularRotation
+      );
+      blockForMouseMove.removeEventListener("mousemove", moveElements);
+    } else {
+      introButtonTween = gsap.to(svg_image_open, {
+        rotation: 360,
+        ease: "none",
+        duration: 20,
+        repeat: -1,
+      });
+      initRotation();
+      initMovement(blockForMouseMove);
+    }
   });
 
-  intro_button_open.addEventListener("mouseenter", function () {
+  // rotate intro__open--button
+  function initRotation() {
+    intro_button_open.addEventListener("mouseenter", accelerateRotateButton);
+
+    intro_button_open.addEventListener("mouseleave", returnToRegularRotation);
+  }
+
+  function accelerateRotateButton() {
     gsap.to(introButtonTween, {
       timeScale: 15,
       duration: 0.3,
       ease: Power4.easeOut,
     });
     gsap.to(intro_button_open, 0.3, { scale: 1.2 });
-  });
+  }
 
-  intro_button_open.addEventListener("mouseleave", function () {
+  function returnToRegularRotation() {
     gsap.to(introButtonTween, {
       timeScale: 1,
       duration: 0.3,
       ease: Power4.easeOut,
     });
     gsap.to(intro_button_open, 0.3, { scale: 1 });
-  });
-
-  // tilt visual elements
-  document
-    .querySelector(".intro__main")
-    .addEventListener("mousemove", moveElements);
+  }
 });
 
 // functions definitions
@@ -121,4 +158,9 @@ function moveElements(e) {
       ease: "Power3.out",
     });
   });
+}
+
+function initMovement(blockForMouseMove) {
+  // move visual elements by mousemove
+  blockForMouseMove.addEventListener("mousemove", moveElements);
 }

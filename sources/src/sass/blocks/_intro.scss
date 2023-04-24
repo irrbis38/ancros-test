@@ -367,6 +367,21 @@
   border-radius: 50%;
   cursor: pointer;
   will-change: transform;
+
+  @include xs {
+    transition: var(--transition);
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  @include xxs {
+    cursor: default;
+
+    &:hover {
+      transform: scale(1);
+    }
+  }
 }
 
 // panels styles
