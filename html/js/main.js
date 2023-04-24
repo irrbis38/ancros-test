@@ -258,8 +258,6 @@ function initStartAnimation() {
   const panelTop = document.querySelector(".intro__panel--top");
   const panelBottom = document.querySelector(".intro__panel--bottom");
 
-  console.log(panelBottom);
-
   const startTL = gsap.timeline();
 
   startTL
