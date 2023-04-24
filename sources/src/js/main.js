@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // tilt visual elements
   document
     .querySelector(".intro__main")
-    .addEventListener("mouseenter", moveElements);
+    .addEventListener("mousemove", moveElements);
 });
 
 // functions definitions
