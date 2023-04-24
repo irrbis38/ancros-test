@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
     initRotation();
     initMovement(blockForMouseMove);
+    initStartAnimation();
   }
 
   const mq768 = window.matchMedia("(max-width: 768px)");
@@ -218,14 +219,14 @@ function moveElements(e) {
 
   const modifier = (index) => index * 1.2 + 0.5;
 
-  introBg.forEach((elements, index) => {
-    gsap.to(elements, {
-      duration: 3,
-      width: Math.abs(87.1 + xPos * 20 * modifier(index)) + "%",
-      paddingTop: Math.abs(30.5 + xPos * 5 * modifier(index)) + "%",
-      ease: "Power4.out",
-    });
-  });
+  // introBg.forEach((elements, index) => {
+  //   gsap.to(elements, {
+  //     duration: 3,
+  //     width: Math.abs(87.1 + xPos * 20 * modifier(index)) + "%",
+  //     paddingTop: Math.abs(30.5 + xPos * 5 * modifier(index)) + "%",
+  //     ease: "Power4.out",
+  //   });
+  // });
 
   orangeBall.forEach((elements, index) => {
     gsap.to(elements, {
@@ -249,4 +250,54 @@ function moveElements(e) {
 function initMovement(blockForMouseMove) {
   // move visual elements by mousemove
   blockForMouseMove.addEventListener("mousemove", moveElements);
+}
+
+function initStartAnimation() {
+  const intro = document.querySelector(".intro");
+  const headerItems = Array.from(document.querySelectorAll(".header__item"));
+  const panelTop = document.querySelector(".intro__panel--top");
+  const panelBottom = document.querySelector(".intro__panel--bottom");
+
+  console.log(panelBottom);
+
+  const startTL = gsap.timeline();
+
+  startTL
+    .set(panelBottom, {
+      y: -60,
+    })
+    .set(panelTop, {
+      y: 60,
+    })
+    .from(intro, {
+      autoAlpha: 0,
+      y: 200,
+      delay: 0.5,
+      duration: 1,
+      ease: "Power3.easeOut",
+    })
+    .from(
+      headerItems,
+      {
+        autoAlpha: 0,
+        y: -30,
+        duration: 0.5,
+        ease: "Power3.easeOut",
+      },
+      "-=0.3"
+    )
+    .to(panelTop, {
+      y: 0,
+      duration: 0.5,
+      ease: "Power3.easeOut",
+    })
+    .to(
+      panelBottom,
+      {
+        y: 0,
+        duration: 0.5,
+        ease: "Power3.easeOut",
+      },
+      0
+    );
 }

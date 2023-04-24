@@ -569,7 +569,7 @@ body.lock {
 }
 .intro__top {
   position: absolute;
-  top: 16px;
+  top: -43px;
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
