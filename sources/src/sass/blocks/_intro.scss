@@ -131,6 +131,8 @@
   overflow: hidden;
 
   @include xxs {
+    border-radius: 30px 30px 0 0;
+
     padding: 28px 16px;
   }
 }

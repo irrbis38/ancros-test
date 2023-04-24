@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   mq768.addEventListener("change", (e) => {
     if (e.matches) {
-      console.log("remove");
       // reset all button listeners
       gsap.killTweensOf("*");
       gsap.set(svg_image_open, { clearProps: "all" });
@@ -114,6 +113,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
   if (window.innerWidth > 576) {
     initPanelsToggle();
   }
+
+  const mq576 = window.matchMedia("(max-width: 576px)");
+
+  mq576.addEventListener("change", (e) => {
+    if (e.matches) {
+      // reset all gsap properties and listeners
+      gsap.killTweensOf("*");
+      gsap.set(panelTop, { clearProps: "all" });
+      gsap.set(panelBottom, { clearProps: "all" });
+      gsap.set(introContent, { clearProps: "all" });
+      intro__open.removeEventListener("click", introOpenHandler);
+      panelTop.classList.remove("active");
+    } else {
+      initPanelsToggle();
+    }
+  });
 
   function initPanelsToggle() {
     intro__open.addEventListener("click", introOpenHandler);
