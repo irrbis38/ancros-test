@@ -4,15 +4,44 @@
 	background: url("../images/sprites/main.svg") no-repeat;
 }
 
+.svg-image-discord {
+	@extend %svg-common;
+	background-position: 4.289544235924933% 97.16312056737588%;
+	background-size: math.div(1148, 29)*100% auto;
+	width: 29px;
+
+}
+@mixin svg-pos-image-discord {
+	background-position: 4.289544235924933% 97.16312056737588%;
+}
+@mixin svg-image-discord-hover {
+	.svg-image-discord {
+		@include svg-pos-image-discord-hover
+	}
+}
+
+.svg-image-discord:before {
+	content:"";
+	display:block;
+	font-size:0;
+	line-height:0;
+	padding-top: math.div(24, 29)*100%;
+}
+
+.svg-image-discord-dims {
+	width: 29px;
+	height: 24px;
+}
+
 .svg-image-left {
 	@extend %svg-common;
-	background-position: 0 89.33333333333333%;
+	background-position: 0 84.81012658227849%;
 	background-size: math.div(1148, 1135)*100% auto;
 	width: 1135px;
 
 }
 @mixin svg-pos-image-left {
-	background-position: 0 89.33333333333333%;
+	background-position: 0 84.81012658227849%;
 }
 @mixin svg-image-left-hover {
 	.svg-image-left {
@@ -62,6 +91,35 @@
 	height: 48px;
 }
 
+.svg-image-panel-top {
+	@extend %svg-common;
+	background-position: 0 94.32624113475177%;
+	background-size: math.div(1148, 315)*100% auto;
+	width: 315px;
+
+}
+@mixin svg-pos-image-panel-top {
+	background-position: 0 94.32624113475177%;
+}
+@mixin svg-image-panel-top-hover {
+	.svg-image-panel-top {
+		@include svg-pos-image-panel-top-hover
+	}
+}
+
+.svg-image-panel-top:before {
+	content:"";
+	display:block;
+	font-size:0;
+	line-height:0;
+	padding-top: math.div(24, 315)*100%;
+}
+
+.svg-image-panel-top-dims {
+	width: 315px;
+	height: 24px;
+}
+
 .svg-image-right {
 	@extend %svg-common;
 	background-position: 0 0;
@@ -89,6 +147,35 @@
 .svg-image-right-dims {
 	width: 1148px;
 	height: 402px;
+}
+
+.svg-image-waves {
+	@extend %svg-common;
+	background-position: 30.912659470068697% 93.77203290246769%;
+	background-size: math.div(1148, 129)*100% auto;
+	width: 129px;
+
+}
+@mixin svg-pos-image-waves {
+	background-position: 30.912659470068697% 93.77203290246769%;
+}
+@mixin svg-image-waves-hover {
+	.svg-image-waves {
+		@include svg-pos-image-waves-hover
+	}
+}
+
+.svg-image-waves:before {
+	content:"";
+	display:block;
+	font-size:0;
+	line-height:0;
+	padding-top: math.div(19, 129)*100%;
+}
+
+.svg-image-waves-dims {
+	width: 129px;
+	height: 19px;
 }
 
 

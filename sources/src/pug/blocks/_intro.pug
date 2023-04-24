@@ -4,30 +4,53 @@ section.intro
         span.intro__top--right
     .container
         .intro__wrapper
-            .intro__main
-                .intro__content
-                    p.intro__suptitle NFT
-                    h1.intro__title THE DROPLET
-                    p.intro__text Will be announced Soon
-                    button.intro__button(type="button") JOIN WAITLIST
+            .intro__inner
+                .intro__main
+                    .intro__content
+                        p.intro__suptitle NFT
+                        h1.intro__title THE DROPLET
+                        p.intro__text Will be announced Soon
+                        button.intro__button(type="button") JOIN WAITLIST
 
-                .intro__visual
-                    .intro__bg--left
-                        +icon('left')
-                    .intro__bg--right
-                        +icon('right')
-                    .intro__orange
-                        +picture('orange', 'png', 'x2')
-                    .intro__purple
-                        +picture('purple', 'png', 'x2')
+                    .intro__visual
+                        .intro__bg--left
+                            +icon('left')
+                        .intro__bg--right
+                            +icon('right')
+                        .intro__orange
+                            +picture('orange', 'png', 'x2')
+                        .intro__purple
+                            +picture('purple', 'png', 'x2')
 
-                .intro__open
-                    +icon('open')
-                    button.intro__button--open
+                    .intro__open
+                        +icon('open')
+                        button.intro__button--open
 
-            .intro__panel.intro__panel--top
+                .intro__panel.intro__panel--top
+                    .panel__inner
+                        .intro__item
+                            .ring
+                            .dash
+                            .circle.active
+                            .circle
+                        .intro__item
+                            .double__ring
+                        .intro__item
+                            .circle
+                            .circle.active
+                            .dash
+                            .ring
 
-            .intro__panel.intro__panel--bottom
+
+
+
+
+                .intro__panel.intro__panel--bottom
+                    .intro__item
+                        .intro__discord
+                            +discordIcon()
+                        .intro__waves
+                            +icon('waves')
 
 
 

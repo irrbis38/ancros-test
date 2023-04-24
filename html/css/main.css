@@ -170,13 +170,32 @@ template {
   font-style: normal;
   font-display: swap
 }
+.svg-image-discord,
 .svg-image-left,
 .svg-image-open,
-.svg-image-right {
+.svg-image-panel-top,
+.svg-image-right,
+.svg-image-waves {
   background: url(../images/sprites/main.svg) no-repeat
 }
+.svg-image-discord {
+  background-position: 4.2895442359% 97.1631205674%;
+  background-size: 3958.6206896552% auto;
+  width: 29px
+}
+.svg-image-discord:before {
+  content: "";
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  padding-top: 82.7586206897%
+}
+.svg-image-discord-dims {
+  width: 29px;
+  height: 24px
+}
 .svg-image-left {
-  background-position: 0 89.3333333333%;
+  background-position: 0 84.8101265823%;
   background-size: 101.1453744493% auto;
   width: 1135px
 }
@@ -207,6 +226,22 @@ template {
   width: 48px;
   height: 48px
 }
+.svg-image-panel-top {
+  background-position: 0 94.3262411348%;
+  background-size: 364.4444444444% auto;
+  width: 315px
+}
+.svg-image-panel-top:before {
+  content: "";
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  padding-top: 7.619047619%
+}
+.svg-image-panel-top-dims {
+  width: 315px;
+  height: 24px
+}
 .svg-image-right {
   background-position: 0 0;
   background-size: 100% auto;
@@ -222,6 +257,22 @@ template {
 .svg-image-right-dims {
   width: 1148px;
   height: 402px
+}
+.svg-image-waves {
+  background-position: 30.9126594701% 93.7720329025%;
+  background-size: 889.9224806202% auto;
+  width: 129px
+}
+.svg-image-waves:before {
+  content: "";
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  padding-top: 14.7286821705%
+}
+.svg-image-waves-dims {
+  width: 129px;
+  height: 19px
 }
 .image-by-height {
   width: auto
@@ -588,8 +639,7 @@ body.lock {
 .intro__wrapper {
   position: relative;
   width: 100%;
-  min-height: 518px;
-  overflow: hidden
+  min-height: 518px
 }
 @media (max-width:768px) {
   .intro__wrapper {
@@ -598,6 +648,22 @@ body.lock {
 }
 @media (max-width:576px) {
   .intro__wrapper {
+    min-height: 488px
+  }
+}
+.intro__inner {
+  position: relative;
+  width: 100%;
+  min-height: 518px;
+  overflow: hidden
+}
+@media (max-width:768px) {
+  .intro__inner {
+    min-height: 548px
+  }
+}
+@media (max-width:576px) {
+  .intro__inner {
     min-height: 488px;
     overflow: visible
   }
@@ -913,10 +979,20 @@ body.lock {
 }
 .intro__panel--top {
   top: -60px;
+  padding: 10px 29px;
   border-radius: 0 0 0 30px;
   border-top: none;
   border-right: none;
-  box-shadow: 15px -15px 0 15px var(--black-color)
+  box-shadow: 15px -15px 0 15px var(--black-color);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center
 }
 .intro__panel--top::before {
   content: "";
@@ -946,6 +1022,112 @@ body.lock {
   border-left: none;
   box-shadow: 10px -10px 0 8px #000
 }
+.intro__panel--top .panel__inner {
+  height: 100%;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+.intro__panel--top .panel__inner .intro__item:first-child {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+.intro__panel--top .panel__inner .intro__item:nth-child(2) {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+.intro__panel--top .panel__inner .intro__item:nth-child(3) {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+.intro__panel--top .ring {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--white-color);
+  border-radius: 50%
+}
+.intro__panel--top .ring:not(:last-child) {
+  margin-right: 10px
+}
+.intro__panel--top .ring::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 20px;
+  height: 1px;
+  background-color: var(--white-color);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg)
+}
+.intro__panel--top .dash {
+  width: 11px;
+  height: 1px;
+  background-color: var(--white-color);
+  margin-right: 9px
+}
+.intro__panel--top .circle {
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--white-color);
+  border-radius: 50%
+}
+.intro__panel--top .circle:not(:last-child) {
+  margin-right: 8px
+}
+.intro__panel--top .circle.active {
+  background-color: var(--white-color)
+}
+.intro__panel--top .double__ring {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--white-color);
+  border-radius: 50%
+}
+.intro__panel--top .double__ring::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  width: 15px;
+  height: 15px;
+  border: 1px solid var(--white-color);
+  border-radius: 50%
+}
 @media (max-width:576px) {
   .intro__panel--top {
     left: 0;
@@ -956,6 +1138,12 @@ body.lock {
     border-bottom: none;
     border-right: 1px solid var(--white-color)
   }
+}
+.intro__vector {
+  width: 100%
+}
+.svg-image-panel-top {
+  display: block
 }
 .intro__panel--bottom {
   bottom: -60px;
@@ -1003,6 +1191,41 @@ body.lock {
     border: 1px solid var(--white-color);
     border-top: none
   }
+}
+.intro__panel--bottom .intro__item {
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 48px
+}
+@media (max-width:576px) {
+  .intro__panel--bottom .intro__item {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    margin: 0 auto
+  }
+}
+.intro__discord {
+  margin-right: 81px;
+  cursor: pointer
+}
+.intro__discord path {
+  transition: var(--transition)
+}
+.intro__discord:hover path {
+  fill: #adadad
+}
+.intro__waves span {
+  display: block
 }
 .intro__nav {
   position: absolute;
